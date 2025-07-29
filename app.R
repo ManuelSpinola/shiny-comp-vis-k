@@ -70,7 +70,9 @@ ui <- fluidPage(
         style = "width: 50%; margin: 20px auto;",
         gt_output("results_table")
       )
-    ))
+    )
+  )
+)
 
 server <- function(input, output, session) {
   # Mostrar la imagen cargada
