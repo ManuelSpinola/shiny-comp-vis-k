@@ -2871,56 +2871,17 @@
     }
   },
   "files": {
+    "_BioObserva_app_k.qmd": {
+      "checksum": "452be1ddb2dfd9002434b9831d8fa7ff"
+    },
     "_quarto.yml": {
       "checksum": "dc9d57b386e5476d0f7a944abc87c4ec"
     },
     "app.R": {
       "checksum": "f752a5871341a31881c40d900c81f45f"
     },
-    "BioObserva_app_k_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css": {
-      "checksum": "81267100e462c21b3d6c0d5bf76a3417"
-    },
-    "BioObserva_app_k_files/libs/bootstrap/bootstrap-icons.css": {
-      "checksum": "2318f137d201fbf51601fa0faba6bef7"
-    },
-    "BioObserva_app_k_files/libs/bootstrap/bootstrap-icons.woff": {
-      "checksum": "1a51dfbe5467607389d603c02a77cd10"
-    },
-    "BioObserva_app_k_files/libs/bootstrap/bootstrap.min.js": {
-      "checksum": "e2b09c06f0e714b6144a6788a28e3950"
-    },
-    "BioObserva_app_k_files/libs/clipboard/clipboard.min.js": {
-      "checksum": "15f52a1ee547f2bdd46e56747332ca2d"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/anchor.min.js": {
-      "checksum": "91bcf6cd1fd88fec3f109811e5fc3546"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/popper.min.js": {
-      "checksum": "3a4a291ccf3f1ea0f82b641542fd3827"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css": {
-      "checksum": "37eea08aefeeee20ff55810ff984fec1"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/quarto.js": {
-      "checksum": "6f4245742deb3cc92337dbe2701ccfe1"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/tabsets/tabsets.js": {
-      "checksum": "e8d6a8862b33ccc461f8fd532e05b365"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/tippy.css": {
-      "checksum": "ebd6f8ce46a677e1a4f5f8a8317109a9"
-    },
-    "BioObserva_app_k_files/libs/quarto-html/tippy.umd.min.js": {
-      "checksum": "d828775275749701b48bd9d958814111"
-    },
-    "BioObserva_app_k.html": {
-      "checksum": "aab4ca2560bf8d9df12aee3278b37e0b"
-    },
-    "BioObserva_app_k.qmd": {
-      "checksum": "452be1ddb2dfd9002434b9831d8fa7ff"
-    },
     "my_view_llm_results.R": {
-      "checksum": "bb7edb29a94fabd0e1aa2ff4e35bcf74"
+      "checksum": "06ef452d1dea8fa7848b73cce8c24baf"
     },
     "www/logo_maritza.png": {
       "checksum": "0c75fc3133ed6e436b48de3abb3882ba"
