@@ -1,0 +1,15 @@
+name: BioObserva_app_k
+title: BioObserva_app_k
+username: mspinola10
+account: mspinola10
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15137370
+bundleId: 10694689
+url: https://mspinola10.shinyapps.io/BioObserva_app_k/
+version: 1
+quarto_version: 1.7.32
+quarto_engines: knitr
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _quarto.yml

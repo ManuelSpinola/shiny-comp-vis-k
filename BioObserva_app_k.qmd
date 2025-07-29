@@ -1,0 +1,120 @@
+---
+title: "BioObserva"
+subtitle: "Detección e identificación de especies en imágenes"
+format: html
+server: shiny
+---
+
+```{r}
+#| context: setup
+#| warning: false
+#| message: false
+library(shiny)
+library(ellmer)
+library(kuzco)
+library(gt)
+library(gargle)
+
+# Internal API key (replace with your actual API key)
+GEMINI_API_KEY <- Sys.getenv("GEMINI_API_KEY")
+GOOGLE_API_KEY <- Sys.getenv("GOOGLE_API_KEY")
+```
+
+# Con la ayuda de Noctua, el búho observador
+
+::: text-center
+![](www/logo_maritza.png){width="50%"}
+
+*Ilustración por Gemini 2.0 Flash y Maritza Ramírez*
+:::
+
+```{r}
+fileInput(
+  inputId = "imagen",
+  label = "Escoge una imagen",
+  buttonLabel = "Seleccionar...",
+  placeholder = "Ningún archivo seleccionado",
+  width = "400px"
+)
+```
+
+\
+
+```{r}
+textInput(
+  inputId = "prompt",
+  label = "Tu solicitud (Ejemplo: que especie se ve en la imagen)",
+  placeholder = "Escribe aquí lo qué quieras saber de la imagen",
+  width = "100%"  # o por ejemplo "600px"
+)
+```
+
+```{r}
+actionButton("goButton", "Envía tu solicitud")
+```
+
+```{r}
+imageOutput("my_image", height = "auto")
+```
+
+```{r}
+div(
+  style = "white-space: pre-wrap; word-wrap: break-word; border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
+  textOutput("text1")
+)
+```
+
+
+```{r}
+div(
+  style = "margin-top: 20px;",
+  gt_output("results_table")
+)
+```
+
+
+```{r}
+#| context: server
+
+source("my_view_llm_results.R")
+
+# Mostrar la imagen cargada
+observeEvent(input$imagen, {
+  req(input$imagen)
+  output$my_image <- renderImage({
+    list(
+      src = input$imagen$datapath,
+      contentType = input$imagen$type,
+      width = "100%",
+      height = "auto"
+    )
+  }, deleteFile = FALSE)
+})
+
+# Reactive expression para guardar los resultados del modelo
+results <- reactiveVal()
+
+# Obtener respuesta del LLM
+observeEvent(input$goButton, {
+  req(input$imagen, input$prompt)
+  res <- kuzco::llm_image_classification(
+    provider = "google_gemini",
+    llm_model = "gemini-2.5-flash",
+    backend = "ellmer",
+    additional_prompt = input$prompt,
+    image = input$imagen$datapath,
+    language = 'Spanish',
+    api_key = Sys.getenv("GOOGLE_API_KEY")
+  )
+  results(res)
+  output$text1 <- renderText({
+    paste("Modelo respondió con", length(res), "resultados.")
+  })
+})
+
+# Mostrar resultados con gt
+output$results_table <- gt::render_gt({
+  req(results())
+  my_view_llm_results(results())
+})
+```
