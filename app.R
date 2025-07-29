@@ -3,6 +3,7 @@ library(ellmer)
 library(kuzco)
 library(gt)
 library(gargle)
+library(magick)
 
 # Cargar funciones auxiliares
 source("my_view_llm_results.R")
