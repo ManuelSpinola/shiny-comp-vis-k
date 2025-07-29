@@ -14,11 +14,23 @@ GEMINI_API_KEY <- Sys.getenv("GEMINI_API_KEY")
 GOOGLE_API_KEY <- Sys.getenv("GOOGLE_API_KEY")
 
 ui <- fluidPage(
-  # Agrega logo y título juntos con HTML
+  # Encabezado con título y subtítulo centrados
   tags$div(
-    style = "display: flex; align-items: center; gap: 10px; padding: 10px 0;",
-    tags$img(src = "logo_maritza.png", height = "50px"),  # ajusta el tamaño aquí
-    tags$h2("BioObserva: Detección e identificación de especies en imágenes")
+    style = "text-align: center; margin-bottom: 10px;",
+    tags$h1("BioObserva"),
+    tags$h4("Detección e identificación de especies en imágenes")
+  ),
+  
+  # Logo centrado debajo del título
+  tags$div(
+    style = "text-align: center; margin-bottom: 10px;",
+    tags$img(src = "mi_logo.png", style = "width: 150px; height: auto;")
+  ),
+  
+  # Texto de crédito debajo del logo, también centrado y con estilo pequeño
+  tags$div(
+    style = "text-align: center; font-style: italic; font-size: 0.9em; margin-bottom: 30px;",
+    "Ilustración por Gemini 2.0 Flash y Maritza Ramírez"
   ),
   
   sidebarLayout(
@@ -38,19 +50,27 @@ ui <- fluidPage(
       ),
       actionButton("goButton", "Envía tu solicitud")
     ),
+    
     mainPanel(
-      imageOutput("my_image", height = "auto"),
+      # Imagen centrada y al 50% del ancho
       div(
-        style = "white-space: pre-wrap; word-wrap: break-word; border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
+        style = "width: 50%; margin: auto;",
+        imageOutput("my_image", height = "auto")
+      ),
+      
+      # Texto con el borde decorativo, igual ancho que la imagen
+      div(
+        style = "width: 50%; margin: 20px auto; white-space: pre-wrap; word-wrap: break-word; 
+             border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
         textOutput("text1")
       ),
+      
+      # Tabla con mismo ancho y alineación
       div(
-        style = "margin-top: 20px;",
+        style = "width: 50%; margin: 20px auto;",
         gt_output("results_table")
       )
     )
-  )
-)
 
 server <- function(input, output, session) {
   # Mostrar la imagen cargada
