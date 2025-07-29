@@ -1,0 +1,13 @@
+name: R_shiny_computer_vision_kuzco
+title: R_shiny_computer_vision_kuzco
+username: mspinola10
+account: mspinola10
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 15139121
+bundleId: 10696003
+url: https://mspinola10.shinyapps.io/R_shiny_computer_vision_kuzco/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: _quarto.yml|BioObserva_app_k.html|BioObserva_app_k.qmd|BioObserva_app_k_files
