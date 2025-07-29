@@ -4,6 +4,7 @@ library(kuzco)
 library(gt)
 library(gargle)
 library(magick)
+library(bslib)
 
 # Cargar funciones auxiliares
 source("my_view_llm_results.R")
@@ -13,7 +14,13 @@ GEMINI_API_KEY <- Sys.getenv("GEMINI_API_KEY")
 GOOGLE_API_KEY <- Sys.getenv("GOOGLE_API_KEY")
 
 ui <- fluidPage(
-  titlePanel("BioObserva: Detección e identificación de especies en imágenes"),
+  # Agrega logo y título juntos con HTML
+  tags$div(
+    style = "display: flex; align-items: center; gap: 10px; padding: 10px 0;",
+    tags$img(src = "logo_maritza.png", height = "50px"),  # ajusta el tamaño aquí
+    tags$h2("BioObserva: Detección e identificación de especies en imágenes")
+  ),
+  
   sidebarLayout(
     sidebarPanel(
       fileInput(
@@ -53,7 +60,7 @@ server <- function(input, output, session) {
       list(
         src = input$imagen$datapath,
         contentType = input$imagen$type,
-        width = "100%",
+        width = "50%",
         height = "auto"
       )
     }, deleteFile = FALSE)
