@@ -46,27 +46,27 @@ ui <- fluidPage(
         inputId = "prompt",
         label = "Tu solicitud (Ejemplo: qué especie se ve en la imagen)",
         placeholder = "Escribe aquí lo que quieras saber de la imagen",
-        width = "100%"
+        width = "60%"
       ),
       actionButton("goButton", "Envía tu solicitud")
     ),
     
     mainPanel(
+      # Contenedor responsivo con máximo ancho
       div(
-        style = "max-width: 800px; margin: 0 auto; text-align: center;",
+        style = "max-width: 700px; width: 100%; margin: auto; padding: 10px;",
         
-        # Imagen adaptable al ancho disponible
-        imageOutput("my_image", height = "auto", width = "100%"),
+        # Imagen adaptativa
+        imageOutput("my_image", height = "auto"),
         
-        # Texto decorado
+        # Texto con borde decorativo
         div(
-          style = "margin-top: 20px; white-space: pre-wrap; word-wrap: break-word; 
-               border: 1px solid #ccc; padding: 10px; border-radius: 6px; 
-               background: #f8f8f8; text-align: left;",
+          style = "margin-top: 20px; white-space: pre-wrap; word-wrap: break-word;
+               border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
           textOutput("text1")
         ),
         
-        # Tabla centrada
+        # Tabla GT
         div(
           style = "margin-top: 20px;",
           gt_output("results_table")
