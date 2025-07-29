@@ -3,15 +3,11 @@
   "locale": "en_US",
   "platform": "4.5.1",
   "metadata": {
-    "appmode": "quarto-shiny",
-    "primary_rmd": "BioObserva_app_k.qmd",
+    "appmode": "shiny",
+    "primary_rmd": null,
     "primary_html": null,
     "content_category": null,
     "has_parameters": false
-  },
-  "quarto": {
-    "version": "1.7.32",
-    "engines": ["knitr"]
   },
   "packages": {
     "MASS": {
@@ -2846,6 +2842,9 @@
     "_quarto.yml": {
       "checksum": "dc9d57b386e5476d0f7a944abc87c4ec"
     },
+    "app.R": {
+      "checksum": "404be264468e0e4260b46db53e6246c0"
+    },
     "BioObserva_app_k_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css": {
       "checksum": "81267100e462c21b3d6c0d5bf76a3417"
     },
@@ -2887,9 +2886,6 @@
     },
     "BioObserva_app_k.qmd": {
       "checksum": "452be1ddb2dfd9002434b9831d8fa7ff"
-    },
-    "BioObserva_k.R": {
-      "checksum": "404be264468e0e4260b46db53e6246c0"
     },
     "my_view_llm_results.R": {
       "checksum": "3f30ec833b5be6faace625a9d9d2f447"
