@@ -24,7 +24,7 @@ ui <- fluidPage(
   # Logo centrado debajo del título
   tags$div(
     style = "text-align: center; margin-bottom: 10px;",
-    tags$img(src = "mi_logo.png", style = "width: 150px; height: auto;")
+    tags$img(src = "logo_maritza.png", style = "width: 150px; height: auto;")
   ),
   
   # Texto de crédito debajo del logo, también centrado y con estilo pequeño
@@ -52,23 +52,25 @@ ui <- fluidPage(
     ),
     
     mainPanel(
-      # Imagen centrada y al 50% del ancho
       div(
-        style = "width: 50%; margin: auto;",
-        imageOutput("my_image", height = "auto")
-      ),
-      
-      # Texto con el borde decorativo, igual ancho que la imagen
-      div(
-        style = "width: 50%; margin: 20px auto; white-space: pre-wrap; word-wrap: break-word; 
-             border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
-        textOutput("text1")
-      ),
-      
-      # Tabla con mismo ancho y alineación
-      div(
-        style = "width: 50%; margin: 20px auto;",
-        gt_output("results_table")
+        style = "max-width: 800px; margin: 0 auto; text-align: center;",
+        
+        # Imagen adaptable al ancho disponible
+        imageOutput("my_image", height = "auto", width = "100%"),
+        
+        # Texto decorado
+        div(
+          style = "margin-top: 20px; white-space: pre-wrap; word-wrap: break-word; 
+               border: 1px solid #ccc; padding: 10px; border-radius: 6px; 
+               background: #f8f8f8; text-align: left;",
+          textOutput("text1")
+        ),
+        
+        # Tabla centrada
+        div(
+          style = "margin-top: 20px;",
+          gt_output("results_table")
+        )
       )
     )
   )
