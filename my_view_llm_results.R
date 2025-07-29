@@ -27,7 +27,7 @@ my_view_llm_results <-function(llm_results) {
     gt::tab_header(
       title = gtExtras::add_text_img(
         "Visión por computadora ",
-        url = "www/logo01.png",
+        url = "logo01.png",
         height = 30
       )
     ) |>
