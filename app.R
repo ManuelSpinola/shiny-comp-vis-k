@@ -18,10 +18,15 @@ ui <- fluidPage(
   tags$div(
     style = "text-align: center; margin-bottom: 10px;",
     tags$h1("BioObserva"),
-    tags$h3("Detección e identificación de especies en imágenes"),
+    tags$h3("¿Qué hay en tu imagen? Análisis visual e identificación de especies"),
     div(style = "height: 10px;"),  # Espacio vertical
-    tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;")
-  ),
+    tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;"),
+    div(style = "height: 10px;"),  # Espacio vertical
+    tags$p(
+      HTML("<strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.", style = "text-align: center;"
+  )
+ )
+),
   
   # Logo centrado
   tags$div(
