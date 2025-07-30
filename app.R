@@ -25,7 +25,7 @@ ui <- fluidPage(
   # Logo centrado debajo del título
   tags$div(
     style = "text-align: center; margin-bottom: 10px;",
-    tags$img(src = "logo_maritza.png", style = "width: 150px; height: auto;")
+    tags$img(src = "logo_maritza.png", style = "width: 250px; height: auto;")
   ),
   
   # Texto de crédito debajo del logo, también centrado y con estilo pequeño
