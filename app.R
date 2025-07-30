@@ -76,7 +76,7 @@ server <- function(input, output, session) {
       list(
         src = input$imagen$datapath,
         contentType = input$imagen$type,
-        width = "50%",
+        width = "100%",
         height = "auto"
       )
     }, deleteFile = FALSE)
