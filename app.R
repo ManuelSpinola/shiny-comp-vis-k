@@ -18,7 +18,8 @@ ui <- fluidPage(
   tags$div(
     style = "text-align: center; margin-bottom: 10px;",
     tags$h1("BioObserva"),
-    tags$h4("Detección e identificación de especies en imágenes")
+    tags$h4("Detección e identificación de especies en imágenes"),
+    tags$p("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;")
   ),
   
   # Logo centrado debajo del título
