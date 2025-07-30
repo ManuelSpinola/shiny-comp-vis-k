@@ -22,11 +22,12 @@ ui <- fluidPage(
     div(style = "height: 10px;"),  # Espacio vertical
     tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;"),
     div(style = "height: 10px;"),  # Espacio vertical
-    tags$p(
-      HTML("<strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.", style = "text-align: center;"
-  )
- )
-),
+    tags$p(HTML('
+      <span style="text-align: center; display: block;">
+        <strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.
+      </span>
+    '))
+  ),
   
   # Logo centrado
   tags$div(
@@ -64,13 +65,21 @@ ui <- fluidPage(
   # Resultado: imagen, texto y tabla centrados
   div(
     style = "max-width: 700px; margin: 40px auto; padding: 10px;",
-    
     imageOutput("my_image", height = "auto"),
-    
     div(
       style = "margin-top: 20px;",
       gt_output("results_table")
     )
+  ),
+  
+  # Pie de página (footer)
+  tags$footer(
+    style = "text-align: center; font-size: 0.85em; margin-top: 50px; padding: 20px; color: #555;",
+    HTML("© 2025 Observatorio de Vida Silvestre y Biodiversidad de Costa Rica, ICOMVIS-UNA.<br>"),
+    "App creada por ",
+    tags$a(href = "https://mspinola-sitioweb.netlify.app", "Manuel Spínola", target = "_blank"),
+    HTML("<br>Esta aplicación utiliza el paquete kuzco de R y Gemini 2.5 Flash (Google AI) como motor de lenguaje.<br>
+       Google no respalda ni administra esta aplicación.")
   )
 )
 

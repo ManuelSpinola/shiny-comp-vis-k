@@ -1,27 +1,23 @@
 # función sacada de kuzco package
-my_view_llm_results <-function(llm_results) {
-  # create a long data.frame for the llm_results
-  llm_results_long <-
-    llm_results |>
-    dplyr::mutate(
-      dplyr::across(
-        dplyr::everything(),
-        as.character
-      )
-    ) |>
+my_view_llm_results <- function(llm_results) {
+  llm_results_long <- llm_results |>
+    dplyr::mutate(across(everything(), as.character)) |>
     tidyr::pivot_longer(
-      cols = dplyr::everything(),
+      cols = everything(),
       names_to = "Contexto",
       values_to = "Respuesta"
-    )
-  
-  # TODO: what-if llm_results contains multiple results?
-  # if, n = 1 ?
-  # else, create a different table for n > 1 ?
-  llm_results_long |>
+    ) |>
     dplyr::mutate(
-      Contexto = stringr::str_replace_all(Contexto, "_", " "),
-      Contexto = stringr::str_to_title(Contexto)
+      Contexto = dplyr::recode(
+        Contexto,
+        image_classification = "Clasificación de la Imagen",
+        primary_object = "Objeto Primario",
+        secondary_object = "Objeto Secundario",
+        image_description = "Descripción de la Imagen",
+        image_colors = "Colores de la Imagen",
+        image_proba_names = "Nombres Probables en la Imagen",
+        image_proba_values = "Probabilidades Asociadas"
+      )
     ) |>
     gt::gt() |>
     gt::tab_header(
