@@ -19,6 +19,7 @@ ui <- fluidPage(
     style = "text-align: center; margin-bottom: 10px;",
     tags$h1("BioObserva"),
     tags$h3("Detección e identificación de especies en imágenes"),
+    div(style = "height: 10px;"),  # Espacio vertical
     tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;")
   ),
   
