@@ -16,7 +16,7 @@ GOOGLE_API_KEY <- Sys.getenv("GOOGLE_API_KEY")
 ui <- fluidPage(
   # Encabezado con título y subtítulo centrados
   tags$div(
-    style = "text-align: center; margin-bottom: 10px;",
+    style = "text-align: center; margin-bottom: 10px; max-width: 800px; margin-left: auto; margin-right: auto;",
     tags$h1("BioObserva"),
     tags$h3("¿Qué hay en tu imagen? Análisis visual e identificación de especies"),
     div(style = "height: 10px;"),
@@ -25,7 +25,7 @@ ui <- fluidPage(
     tags$p(
       HTML("<strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.")
     )
-  ),  # ← Esta coma es la corrección clave (antes había un paréntesis extra aquí)
+  ),
   
   # Logo centrado
   tags$div(
