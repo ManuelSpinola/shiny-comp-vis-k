@@ -22,57 +22,48 @@ ui <- fluidPage(
     tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;")
   ),
   
-  # Logo centrado debajo del título
+  # Logo centrado
   tags$div(
     style = "text-align: center; margin-bottom: 10px;",
-    tags$img(src = "logo_maritza.png", style = "width: 250px; height: auto;")
+    tags$img(src = "logo_maritza.png", style = "max-width: 250px; height: auto;")
   ),
   
-  # Texto de crédito debajo del logo, también centrado y con estilo pequeño
+  # Crédito del logo
   tags$div(
     style = "text-align: center; font-style: italic; font-size: 0.9em; margin-bottom: 30px;",
     "Ilustración por Gemini 2.0 Flash y Maritza Ramírez"
   ),
   
-  sidebarLayout(
-    sidebarPanel(
-      fileInput(
-        inputId = "imagen",
-        label = "Escoge una imagen",
-        buttonLabel = "Seleccionar...",
-        placeholder = "Ningún archivo seleccionado",
-        width = "400px"
-      ),
-      textInput(
-        inputId = "prompt",
-        label = "Tu solicitud (Ejemplo: qué especie se ve en la imagen)",
-        placeholder = "Escribe aquí lo que quieras saber de la imagen",
-        width = "60%"
-      ),
-      actionButton("goButton", "Envía tu solicitud")
+  # Inputs centrados en un solo panel fluido
+  div(
+    style = "max-width: 600px; margin: auto;",
+    fileInput(
+      inputId = "imagen",
+      label = "Escoge una imagen",
+      buttonLabel = "Seleccionar...",
+      placeholder = "Ningún archivo seleccionado",
+      width = "100%"
     ),
+    textInput(
+      inputId = "prompt",
+      label = "Tu solicitud (Ejemplo: qué especie se ve en la imagen)",
+      placeholder = "Escribe aquí lo que quieras saber de la imagen",
+      width = "100%"
+    ),
+    div(style = "text-align: center;",
+        actionButton("goButton", "Envía tu solicitud")
+    )
+  ),
+  
+  # Resultado: imagen, texto y tabla centrados
+  div(
+    style = "max-width: 700px; margin: 40px auto; padding: 10px;",
     
-    mainPanel(
-      # Contenedor responsivo con máximo ancho
-      div(
-        style = "max-width: 700px; width: 100%; margin: auto; padding: 10px;",
-        
-        # Imagen adaptativa
-        imageOutput("my_image", height = "auto"),
-        
-        # Texto con borde decorativo
-        div(
-          style = "margin-top: 20px; white-space: pre-wrap; word-wrap: break-word;
-               border: 1px solid #ccc; padding: 10px; border-radius: 6px; background: #f8f8f8;",
-          textOutput("text1")
-        ),
-        
-        # Tabla GT
-        div(
-          style = "margin-top: 20px;",
-          gt_output("results_table")
-        )
-      )
+    imageOutput("my_image", height = "auto"),
+    
+    div(
+      style = "margin-top: 20px;",
+      gt_output("results_table")
     )
   )
 )
@@ -110,9 +101,6 @@ server <- function(input, output, session) {
     
     results(res)
     
-    output$text1 <- renderText({
-      paste("Modelo respondió con", length(res), "resultados.")
-    })
   })
   
   # Mostrar resultados con gt
