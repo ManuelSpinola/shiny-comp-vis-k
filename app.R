@@ -36,7 +36,7 @@ ui <- fluidPage(
   # Crédito del logo
   tags$div(
     style = "text-align: center; font-style: italic; font-size: 0.9em; margin-bottom: 30px;",
-    "Ilustración por Gemini 2.0 Flash y Maritza Ramírez"
+    "Ilustración por Gemini 2.0 Flash y Maritza Ramírez."
   ),
   
   # Inputs centrados en un solo panel fluido
