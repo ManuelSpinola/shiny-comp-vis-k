@@ -23,10 +23,8 @@ ui <- fluidPage(
     tags$h4("Con la ayuda de Noctua, el búho observador", style = "font-style: italic;"),
     div(style = "height: 10px;"),  # Espacio vertical
     tags$p(HTML('
-      <span style="text-align: center; display: block;">
-        <strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.
-      </span>
-    '))
+        <strong>Noctua</strong>, nuestro búho observador, utiliza inteligencia artificial para ayudarte a descubrir lo que hay en una imagen. No solo identifica las especies presentes, sino que también analiza toda la escena visual, detectando detalles relevantes que podrían pasar desapercibidos. Ideal para aprender, explorar y maravillarse con la biodiversidad que nos rodea.')
+   )
   ),
   
   # Logo centrado
